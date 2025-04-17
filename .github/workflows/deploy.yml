@@ -21,7 +21,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Pages
@@ -30,7 +30,7 @@ jobs:
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # ← make sure this matches your folder
+          path: 'public'  # 👈 this should be the folder containing your index.html
 
       - name: Deploy to GitHub Pages
         id: deployment
